@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Retro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos para la disposición de las imágenes */
+        .image-container {
+            display: flex; /* Usa flexbox para colocar las imágenes en línea */
+            justify-content: center; /* Centra horizontalmente las imágenes */
+            align-items: center; /* Centra verticalmente las imágenes */
+            flex-wrap: wrap; /* Permite que las imágenes se envuelvan si no caben en una sola línea */
+            gap: 20px; /* Espacio entre las imágenes */
+            margin-bottom: 20px; /* Margen inferior para separarlas del texto */
+            position: relative; /* Para posicionar elementos absolutamente dentro de este contenedor */
+        }
+        .image-container img {
+            max-width: 100%; /* Asegura que las imágenes no sobrepasen el ancho del contenedor */
+            height: auto; /* Permite que la altura de las imágenes se ajuste automáticamente */
+        }
+        .explosion {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('explosion.png') no-repeat center center; /* URL de la imagen o GIF de explosión */
+            background-size: cover;
+            display: none; /* Ocultar la explosión por defecto */
+        }
+        .animate {
+            display: block; /* Mostrar la explosión cuando se anima */
+            animation: explode 1s forwards; /* Reemplazar con la duración de tu animación */
+        }
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Animaciones adicionales */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes slideInFromRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes bounceIn {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+            50% {
+                -webkit-transform: translateY(-20px);
+                transform: translateY(-20px);
+            }
+        }
+        header {
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav ul {
+            animation: slideInFromLeft 1.5s ease-in-out;
+        }
+        main {
+            animation: slideInFromRight 1.5s ease-in-out;
+        }
+        footer {
+            animation: bounceIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado de la página -->    
+    <header>
+        <h1>Juegos Retro</h1>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <li><a href="http://127.0.0.1:5500/64_bits.html">Inicio</a></li>
+            <li><a href="http://127.0.0.1:5500/Sobre_Nosotros.html" target="_blank">Sobre nosotros</a></li>
+            <li><a href="https://www.retrogames.cz/" target="_blank">Juegos</a></li>
+            <li><a href="http://127.0.0.1:5500/Estadisticas.html" target="_blank">Estadísticas</a></li>
+        </ul>
+
+        <!-- Formulario de búsqueda -->
+        <form>
+            <input type="search" name="q" placeholder="Buscar">
+            <button type="submit">Buscar</button>
+        </form>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección sobre un juego retro -->
+        <article>
+            <h2>¿Por qué nos llaman tanto la atención los juegos retro?</h2>
+
+            <p>Más que una forma de entretenimiento, ha divertido a varias generaciones durante años. Muchos juegos en formato de 64 bits han sido, aunque no los de mayor calidad comparados con los actuales, los que más esfuerzo han dedicado desarrolladores Indie y empresas que en ese entonces empezaban con esta industria.</p>
+            
+            <p>Durante bastante tiempo ha sido complicado señalar cuál fue el primer videojuego, principalmente debido a las múltiples definiciones de este que se han ido estableciendo, pero se puede considerar como primer videojuego el Nought and crosses, también llamado OXO, desarrollado por Alexander S. Douglas en 1952. El juego era una versión computerizada del tres en raya que se ejecutaba sobre la EDSAC y permitía enfrentar a un jugador humano contra la máquina.</p>
+
+            <!-- Contenedor para las imágenes -->
+            <div class="image-container">
+                <!-- Imagen de Super Mario Bros -->
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png" alt="Super Mario Bros.">
+                <div class="explosion"></div> <!-- Elemento de explosión -->
+                
+                <!-- Imagen del primer videojuego -->
+                <img src="https://www.fib.upc.edu/retro-informatica/historia/videojocs/mainColumnParagraphs/0/image/oxo.jpg" alt="Primer videojuego de la historia.">
+                <div class="explosion"></div> <!-- Elemento de explosión -->
+            </div>
+
+            <h3>Gameplay</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kqSyOshU_NQ?si=sQa3lQRqg7vYzt96" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </article>
+
+        <!-- Sección de enlaces relacionados -->
+        <aside>
+            <h2>Juegos recomendados (64 bits) para jugar</h2>
+
+            <ul>
+                <li><a href="https://jcw87.github.io/c2-sans-fight/" target="_blank">c2-sans-fight - Simulador de pelea contra sans </a></li>
+                <li><a href="https://doodle-pile.gitlab.io/unfair-undyne/v0.99/" target="_blank">unfair-undyne - Simulador de pelea contra Undyne</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© Derechos de autor 2024 por Cristian Ramirez, Todos los derechos reservados</p>
+    </footer>
+
+    <!-- JavaScript para manejar las explosiones -->
+    <script>
+        // JavaScript para manejar las explosiones
+        document.querySelectorAll('.image-container img').forEach((img, index) => {
+            img.addEventListener('mouseover', function() {
+                var explosion = this.nextElementSibling;
+                explosion.classList.add('animate');
+                explosion.style.left = (img.offsetLeft + img.clientWidth / 2 - 50) + 'px';
+                explosion.style.top = (img.offsetTop + img.clientHeight / 2 - 50) + 'px';
+                explosion.addEventListener('animationend', () => {
+                    explosion.classList.remove('animate');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
